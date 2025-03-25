@@ -10,9 +10,9 @@
 .svn/
 migrate_working_dir/
 
-/lib/service
-/android
-/ios
+lib/service
+android/
+ios/
 
 # IntelliJ related
 *.iml
