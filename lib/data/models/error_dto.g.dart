@@ -6,11 +6,12 @@ part of 'error_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ErrorDto _$$_ErrorDtoFromJson(Map<String, dynamic> json) => _$_ErrorDto(
+_$ErrorDtoImpl _$$ErrorDtoImplFromJson(Map<String, dynamic> json) =>
+    _$ErrorDtoImpl(
       message: json['message'] as String?,
     );
 
-Map<String, dynamic> _$$_ErrorDtoToJson(_$_ErrorDto instance) =>
+Map<String, dynamic> _$$ErrorDtoImplToJson(_$ErrorDtoImpl instance) =>
     <String, dynamic>{
       'message': instance.message,
     };

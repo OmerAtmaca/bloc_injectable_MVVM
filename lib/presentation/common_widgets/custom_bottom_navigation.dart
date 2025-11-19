@@ -32,7 +32,7 @@ class _CustomBottomNavigationState extends State<CustomBottomNavigation> {
   void init() {
     screenWidth = MediaQuery.of(context).size.width;
     itemWidth = screenWidth / 2;
-    iconHeight = itemWidth / 10;
+    iconHeight = itemWidth / 12;
   }
 
   @override

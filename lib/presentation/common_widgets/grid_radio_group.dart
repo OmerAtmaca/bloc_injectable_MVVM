@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tofas_spor_okullari/presentation/utils/ext_utils.dart';
+
 import '../utils/custom_colors.dart';
 
 class GridRadioGroup<T> extends StatefulWidget {
@@ -49,13 +50,16 @@ class _GridRadioGroupState<T> extends State<GridRadioGroup<T>> {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5.0),
               border: Border.all(
-                color: item == currentItem ? CustomColors.dazzledBlue : CustomColors.heather,
+                color: item == currentItem
+                    ? CustomColors.dazzledBlue
+                    : CustomColors.heather,
               ),
             ),
             child: Theme(
               data: ThemeData(unselectedWidgetColor: CustomColors.heather),
               child: RadioListTile<T>(
-                visualDensity: const VisualDensity(horizontal: VisualDensity.minimumDensity),
+                visualDensity: const VisualDensity(
+                    horizontal: VisualDensity.minimumDensity),
                 dense: true,
                 activeColor: CustomColors.tarawera,
                 contentPadding: const EdgeInsets.only(right: 6),
@@ -70,7 +74,9 @@ class _GridRadioGroupState<T> extends State<GridRadioGroup<T>> {
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
-                      color: item == currentItem ? CustomColors.tarawera : CustomColors.heather,
+                      color: item == currentItem
+                          ? CustomColors.tarawera
+                          : CustomColors.heather,
                     ),
                   ),
                 ),

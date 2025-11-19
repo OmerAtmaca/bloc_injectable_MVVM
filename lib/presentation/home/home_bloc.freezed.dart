@@ -12,7 +12,7 @@ part of 'home_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$HomeState {
@@ -23,6 +23,7 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   int get counted => throw _privateConstructorUsedError;
   String get userId => throw _privateConstructorUsedError;
+  bool get isDragging => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -40,7 +41,8 @@ abstract class $HomeStateCopyWith<$Res> {
       StateType stateType,
       QuerySnapshot<UsersModel?>? dataUser,
       int counted,
-      String userId});
+      String userId,
+      bool isDragging});
 }
 
 /// @nodoc
@@ -62,6 +64,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? dataUser = freezed,
     Object? counted = null,
     Object? userId = null,
+    Object? isDragging = null,
   }) {
     return _then(_value.copyWith(
       pageError: null == pageError
@@ -88,15 +91,20 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      isDragging: null == isDragging
+          ? _value.isDragging
+          : isDragging // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
-  factory _$$_HomeStateCopyWith(
-          _$_HomeState value, $Res Function(_$_HomeState) then) =
-      __$$_HomeStateCopyWithImpl<$Res>;
+abstract class _$$HomeStateImplCopyWith<$Res>
+    implements $HomeStateCopyWith<$Res> {
+  factory _$$HomeStateImplCopyWith(
+          _$HomeStateImpl value, $Res Function(_$HomeStateImpl) then) =
+      __$$HomeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -105,15 +113,16 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       StateType stateType,
       QuerySnapshot<UsersModel?>? dataUser,
       int counted,
-      String userId});
+      String userId,
+      bool isDragging});
 }
 
 /// @nodoc
-class __$$_HomeStateCopyWithImpl<$Res>
-    extends _$HomeStateCopyWithImpl<$Res, _$_HomeState>
-    implements _$$_HomeStateCopyWith<$Res> {
-  __$$_HomeStateCopyWithImpl(
-      _$_HomeState _value, $Res Function(_$_HomeState) _then)
+class __$$HomeStateImplCopyWithImpl<$Res>
+    extends _$HomeStateCopyWithImpl<$Res, _$HomeStateImpl>
+    implements _$$HomeStateImplCopyWith<$Res> {
+  __$$HomeStateImplCopyWithImpl(
+      _$HomeStateImpl _value, $Res Function(_$HomeStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,8 +134,9 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? dataUser = freezed,
     Object? counted = null,
     Object? userId = null,
+    Object? isDragging = null,
   }) {
-    return _then(_$_HomeState(
+    return _then(_$HomeStateImpl(
       pageError: null == pageError
           ? _value.pageError
           : pageError // ignore: cast_nullable_to_non_nullable
@@ -151,20 +161,25 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
               as String,
+      isDragging: null == isDragging
+          ? _value.isDragging
+          : isDragging // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_HomeState implements _HomeState {
-  const _$_HomeState(
+class _$HomeStateImpl implements _HomeState {
+  const _$HomeStateImpl(
       {this.pageError = "",
       this.error = "",
       this.stateType = StateType.initial,
       this.dataUser = null,
       this.counted = 0,
-      this.userId = ""});
+      this.userId = "",
+      this.isDragging = false});
 
   @override
   @JsonKey()
@@ -184,17 +199,20 @@ class _$_HomeState implements _HomeState {
   @override
   @JsonKey()
   final String userId;
+  @override
+  @JsonKey()
+  final bool isDragging;
 
   @override
   String toString() {
-    return 'HomeState(pageError: $pageError, error: $error, stateType: $stateType, dataUser: $dataUser, counted: $counted, userId: $userId)';
+    return 'HomeState(pageError: $pageError, error: $error, stateType: $stateType, dataUser: $dataUser, counted: $counted, userId: $userId, isDragging: $isDragging)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_HomeState &&
+            other is _$HomeStateImpl &&
             (identical(other.pageError, pageError) ||
                 other.pageError == pageError) &&
             (identical(other.error, error) || other.error == error) &&
@@ -203,18 +221,20 @@ class _$_HomeState implements _HomeState {
             (identical(other.dataUser, dataUser) ||
                 other.dataUser == dataUser) &&
             (identical(other.counted, counted) || other.counted == counted) &&
-            (identical(other.userId, userId) || other.userId == userId));
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.isDragging, isDragging) ||
+                other.isDragging == isDragging));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, pageError, error, stateType, dataUser, counted, userId);
+  int get hashCode => Object.hash(runtimeType, pageError, error, stateType,
+      dataUser, counted, userId, isDragging);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
-      __$$_HomeStateCopyWithImpl<_$_HomeState>(this, _$identity);
+  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
+      __$$HomeStateImplCopyWithImpl<_$HomeStateImpl>(this, _$identity);
 }
 
 abstract class _HomeState implements HomeState {
@@ -224,7 +244,8 @@ abstract class _HomeState implements HomeState {
       final StateType stateType,
       final QuerySnapshot<UsersModel?>? dataUser,
       final int counted,
-      final String userId}) = _$_HomeState;
+      final String userId,
+      final bool isDragging}) = _$HomeStateImpl;
 
   @override
   String get pageError;
@@ -239,7 +260,9 @@ abstract class _HomeState implements HomeState {
   @override
   String get userId;
   @override
+  bool get isDragging;
+  @override
   @JsonKey(ignore: true)
-  _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>
+  _$$HomeStateImplCopyWith<_$HomeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

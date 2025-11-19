@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+
 import '../utils/custom_colors.dart';
 import '../utils/dimens.dart';
 
@@ -11,7 +12,8 @@ class CustomErrorWidget extends StatelessWidget {
   Widget build(BuildContext context) => Visibility(
         visible: errorText.isNotEmpty,
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: Dimens.horizontalOffset),
+          padding:
+              const EdgeInsets.symmetric(horizontal: Dimens.horizontalOffset),
           child: Center(
             child: Text(
               errorText,

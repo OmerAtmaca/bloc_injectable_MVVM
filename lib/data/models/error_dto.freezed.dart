@@ -12,7 +12,7 @@ part of 'error_dto.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ErrorDto _$ErrorDtoFromJson(Map<String, dynamic> json) {
   return _ErrorDto.fromJson(json);
@@ -61,21 +61,22 @@ class _$ErrorDtoCopyWithImpl<$Res, $Val extends ErrorDto>
 }
 
 /// @nodoc
-abstract class _$$_ErrorDtoCopyWith<$Res> implements $ErrorDtoCopyWith<$Res> {
-  factory _$$_ErrorDtoCopyWith(
-          _$_ErrorDto value, $Res Function(_$_ErrorDto) then) =
-      __$$_ErrorDtoCopyWithImpl<$Res>;
+abstract class _$$ErrorDtoImplCopyWith<$Res>
+    implements $ErrorDtoCopyWith<$Res> {
+  factory _$$ErrorDtoImplCopyWith(
+          _$ErrorDtoImpl value, $Res Function(_$ErrorDtoImpl) then) =
+      __$$ErrorDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$_ErrorDtoCopyWithImpl<$Res>
-    extends _$ErrorDtoCopyWithImpl<$Res, _$_ErrorDto>
-    implements _$$_ErrorDtoCopyWith<$Res> {
-  __$$_ErrorDtoCopyWithImpl(
-      _$_ErrorDto _value, $Res Function(_$_ErrorDto) _then)
+class __$$ErrorDtoImplCopyWithImpl<$Res>
+    extends _$ErrorDtoCopyWithImpl<$Res, _$ErrorDtoImpl>
+    implements _$$ErrorDtoImplCopyWith<$Res> {
+  __$$ErrorDtoImplCopyWithImpl(
+      _$ErrorDtoImpl _value, $Res Function(_$ErrorDtoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -83,7 +84,7 @@ class __$$_ErrorDtoCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$_ErrorDto(
+    return _then(_$ErrorDtoImpl(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -94,11 +95,11 @@ class __$$_ErrorDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ErrorDto implements _ErrorDto {
-  const _$_ErrorDto({this.message});
+class _$ErrorDtoImpl implements _ErrorDto {
+  const _$ErrorDtoImpl({this.message});
 
-  factory _$_ErrorDto.fromJson(Map<String, dynamic> json) =>
-      _$$_ErrorDtoFromJson(json);
+  factory _$ErrorDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ErrorDtoImplFromJson(json);
 
   @override
   final String? message;
@@ -109,10 +110,10 @@ class _$_ErrorDto implements _ErrorDto {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ErrorDto &&
+            other is _$ErrorDtoImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -123,26 +124,27 @@ class _$_ErrorDto implements _ErrorDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorDtoCopyWith<_$_ErrorDto> get copyWith =>
-      __$$_ErrorDtoCopyWithImpl<_$_ErrorDto>(this, _$identity);
+  _$$ErrorDtoImplCopyWith<_$ErrorDtoImpl> get copyWith =>
+      __$$ErrorDtoImplCopyWithImpl<_$ErrorDtoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ErrorDtoToJson(
+    return _$$ErrorDtoImplToJson(
       this,
     );
   }
 }
 
 abstract class _ErrorDto implements ErrorDto {
-  const factory _ErrorDto({final String? message}) = _$_ErrorDto;
+  const factory _ErrorDto({final String? message}) = _$ErrorDtoImpl;
 
-  factory _ErrorDto.fromJson(Map<String, dynamic> json) = _$_ErrorDto.fromJson;
+  factory _ErrorDto.fromJson(Map<String, dynamic> json) =
+      _$ErrorDtoImpl.fromJson;
 
   @override
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$_ErrorDtoCopyWith<_$_ErrorDto> get copyWith =>
+  _$$ErrorDtoImplCopyWith<_$ErrorDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

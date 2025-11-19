@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tofas_spor_okullari/state/base_cubit.dart';
 
 import '../../data/models/users_model.dart';
 import '../../data/repositories/auth_repository.dart';
@@ -21,7 +21,7 @@ class LoginState with _$LoginState {
   }) = _LoginState;
 }
 
-class LoginBloc extends Cubit<LoginState> {
+class LoginBloc extends BaseCubit<LoginState> {
   final AuthRepository _authRepository;
 
   void isPhoneValid(bool value) => emit(state.copyWith(isPhoneValid: value));

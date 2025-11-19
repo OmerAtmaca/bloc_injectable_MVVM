@@ -12,7 +12,7 @@ part of 'tab_3_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TabUcState {
@@ -86,11 +86,11 @@ class _$TabUcStateCopyWithImpl<$Res, $Val extends TabUcState>
 }
 
 /// @nodoc
-abstract class _$$_TabUcStateCopyWith<$Res>
+abstract class _$$TabUcStateImplCopyWith<$Res>
     implements $TabUcStateCopyWith<$Res> {
-  factory _$$_TabUcStateCopyWith(
-          _$_TabUcState value, $Res Function(_$_TabUcState) then) =
-      __$$_TabUcStateCopyWithImpl<$Res>;
+  factory _$$TabUcStateImplCopyWith(
+          _$TabUcStateImpl value, $Res Function(_$TabUcStateImpl) then) =
+      __$$TabUcStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$_TabUcStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TabUcStateCopyWithImpl<$Res>
-    extends _$TabUcStateCopyWithImpl<$Res, _$_TabUcState>
-    implements _$$_TabUcStateCopyWith<$Res> {
-  __$$_TabUcStateCopyWithImpl(
-      _$_TabUcState _value, $Res Function(_$_TabUcState) _then)
+class __$$TabUcStateImplCopyWithImpl<$Res>
+    extends _$TabUcStateCopyWithImpl<$Res, _$TabUcStateImpl>
+    implements _$$TabUcStateImplCopyWith<$Res> {
+  __$$TabUcStateImplCopyWithImpl(
+      _$TabUcStateImpl _value, $Res Function(_$TabUcStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_TabUcStateCopyWithImpl<$Res>
     Object? usersModel = freezed,
     Object? counted = null,
   }) {
-    return _then(_$_TabUcState(
+    return _then(_$TabUcStateImpl(
       pageError: null == pageError
           ? _value.pageError
           : pageError // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_TabUcStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TabUcState implements _TabUcState {
-  const _$_TabUcState(
+class _$TabUcStateImpl implements _TabUcState {
+  const _$TabUcStateImpl(
       {this.pageError = "",
       this.error = "",
       this.stateType = StateType.initial,
@@ -175,10 +175,10 @@ class _$_TabUcState implements _TabUcState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TabUcState &&
+            other is _$TabUcStateImpl &&
             (identical(other.pageError, pageError) ||
                 other.pageError == pageError) &&
             (identical(other.error, error) || other.error == error) &&
@@ -196,8 +196,8 @@ class _$_TabUcState implements _TabUcState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TabUcStateCopyWith<_$_TabUcState> get copyWith =>
-      __$$_TabUcStateCopyWithImpl<_$_TabUcState>(this, _$identity);
+  _$$TabUcStateImplCopyWith<_$TabUcStateImpl> get copyWith =>
+      __$$TabUcStateImplCopyWithImpl<_$TabUcStateImpl>(this, _$identity);
 }
 
 abstract class _TabUcState implements TabUcState {
@@ -206,7 +206,7 @@ abstract class _TabUcState implements TabUcState {
       final String error,
       final StateType stateType,
       final UsersModel? usersModel,
-      final int counted}) = _$_TabUcState;
+      final int counted}) = _$TabUcStateImpl;
 
   @override
   String get pageError;
@@ -220,6 +220,6 @@ abstract class _TabUcState implements TabUcState {
   int get counted;
   @override
   @JsonKey(ignore: true)
-  _$$_TabUcStateCopyWith<_$_TabUcState> get copyWith =>
+  _$$TabUcStateImplCopyWith<_$TabUcStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

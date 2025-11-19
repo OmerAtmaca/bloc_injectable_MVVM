@@ -12,7 +12,7 @@ part of 'tab_4_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TabDortState {
@@ -86,11 +86,11 @@ class _$TabDortStateCopyWithImpl<$Res, $Val extends TabDortState>
 }
 
 /// @nodoc
-abstract class _$$_TabDortStateCopyWith<$Res>
+abstract class _$$TabDortStateImplCopyWith<$Res>
     implements $TabDortStateCopyWith<$Res> {
-  factory _$$_TabDortStateCopyWith(
-          _$_TabDortState value, $Res Function(_$_TabDortState) then) =
-      __$$_TabDortStateCopyWithImpl<$Res>;
+  factory _$$TabDortStateImplCopyWith(
+          _$TabDortStateImpl value, $Res Function(_$TabDortStateImpl) then) =
+      __$$TabDortStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +102,11 @@ abstract class _$$_TabDortStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_TabDortStateCopyWithImpl<$Res>
-    extends _$TabDortStateCopyWithImpl<$Res, _$_TabDortState>
-    implements _$$_TabDortStateCopyWith<$Res> {
-  __$$_TabDortStateCopyWithImpl(
-      _$_TabDortState _value, $Res Function(_$_TabDortState) _then)
+class __$$TabDortStateImplCopyWithImpl<$Res>
+    extends _$TabDortStateCopyWithImpl<$Res, _$TabDortStateImpl>
+    implements _$$TabDortStateImplCopyWith<$Res> {
+  __$$TabDortStateImplCopyWithImpl(
+      _$TabDortStateImpl _value, $Res Function(_$TabDortStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$_TabDortStateCopyWithImpl<$Res>
     Object? usersModel = freezed,
     Object? counted = null,
   }) {
-    return _then(_$_TabDortState(
+    return _then(_$TabDortStateImpl(
       pageError: null == pageError
           ? _value.pageError
           : pageError // ignore: cast_nullable_to_non_nullable
@@ -145,8 +145,8 @@ class __$$_TabDortStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TabDortState implements _TabDortState {
-  const _$_TabDortState(
+class _$TabDortStateImpl implements _TabDortState {
+  const _$TabDortStateImpl(
       {this.pageError = "",
       this.error = "",
       this.stateType = StateType.initial,
@@ -175,10 +175,10 @@ class _$_TabDortState implements _TabDortState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_TabDortState &&
+            other is _$TabDortStateImpl &&
             (identical(other.pageError, pageError) ||
                 other.pageError == pageError) &&
             (identical(other.error, error) || other.error == error) &&
@@ -196,8 +196,8 @@ class _$_TabDortState implements _TabDortState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TabDortStateCopyWith<_$_TabDortState> get copyWith =>
-      __$$_TabDortStateCopyWithImpl<_$_TabDortState>(this, _$identity);
+  _$$TabDortStateImplCopyWith<_$TabDortStateImpl> get copyWith =>
+      __$$TabDortStateImplCopyWithImpl<_$TabDortStateImpl>(this, _$identity);
 }
 
 abstract class _TabDortState implements TabDortState {
@@ -206,7 +206,7 @@ abstract class _TabDortState implements TabDortState {
       final String error,
       final StateType stateType,
       final UsersModel? usersModel,
-      final int counted}) = _$_TabDortState;
+      final int counted}) = _$TabDortStateImpl;
 
   @override
   String get pageError;
@@ -220,6 +220,6 @@ abstract class _TabDortState implements TabDortState {
   int get counted;
   @override
   @JsonKey(ignore: true)
-  _$$_TabDortStateCopyWith<_$_TabDortState> get copyWith =>
+  _$$TabDortStateImplCopyWith<_$TabDortStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

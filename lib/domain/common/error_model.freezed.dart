@@ -12,7 +12,7 @@ part of 'error_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ErrorModel {
@@ -57,22 +57,22 @@ class _$ErrorModelCopyWithImpl<$Res, $Val extends ErrorModel>
 }
 
 /// @nodoc
-abstract class _$$_ErrorModelCopyWith<$Res>
+abstract class _$$ErrorModelImplCopyWith<$Res>
     implements $ErrorModelCopyWith<$Res> {
-  factory _$$_ErrorModelCopyWith(
-          _$_ErrorModel value, $Res Function(_$_ErrorModel) then) =
-      __$$_ErrorModelCopyWithImpl<$Res>;
+  factory _$$ErrorModelImplCopyWith(
+          _$ErrorModelImpl value, $Res Function(_$ErrorModelImpl) then) =
+      __$$ErrorModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String error});
 }
 
 /// @nodoc
-class __$$_ErrorModelCopyWithImpl<$Res>
-    extends _$ErrorModelCopyWithImpl<$Res, _$_ErrorModel>
-    implements _$$_ErrorModelCopyWith<$Res> {
-  __$$_ErrorModelCopyWithImpl(
-      _$_ErrorModel _value, $Res Function(_$_ErrorModel) _then)
+class __$$ErrorModelImplCopyWithImpl<$Res>
+    extends _$ErrorModelCopyWithImpl<$Res, _$ErrorModelImpl>
+    implements _$$ErrorModelImplCopyWith<$Res> {
+  __$$ErrorModelImplCopyWithImpl(
+      _$ErrorModelImpl _value, $Res Function(_$ErrorModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -80,7 +80,7 @@ class __$$_ErrorModelCopyWithImpl<$Res>
   $Res call({
     Object? error = null,
   }) {
-    return _then(_$_ErrorModel(
+    return _then(_$ErrorModelImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class __$$_ErrorModelCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ErrorModel implements _ErrorModel {
-  const _$_ErrorModel({required this.error});
+class _$ErrorModelImpl implements _ErrorModel {
+  const _$ErrorModelImpl({required this.error});
 
   @override
   final String error;
@@ -103,10 +103,10 @@ class _$_ErrorModel implements _ErrorModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ErrorModel &&
+            other is _$ErrorModelImpl &&
             (identical(other.error, error) || other.error == error));
   }
 
@@ -116,17 +116,17 @@ class _$_ErrorModel implements _ErrorModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ErrorModelCopyWith<_$_ErrorModel> get copyWith =>
-      __$$_ErrorModelCopyWithImpl<_$_ErrorModel>(this, _$identity);
+  _$$ErrorModelImplCopyWith<_$ErrorModelImpl> get copyWith =>
+      __$$ErrorModelImplCopyWithImpl<_$ErrorModelImpl>(this, _$identity);
 }
 
 abstract class _ErrorModel implements ErrorModel {
-  const factory _ErrorModel({required final String error}) = _$_ErrorModel;
+  const factory _ErrorModel({required final String error}) = _$ErrorModelImpl;
 
   @override
   String get error;
   @override
   @JsonKey(ignore: true)
-  _$$_ErrorModelCopyWith<_$_ErrorModel> get copyWith =>
+  _$$ErrorModelImplCopyWith<_$ErrorModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

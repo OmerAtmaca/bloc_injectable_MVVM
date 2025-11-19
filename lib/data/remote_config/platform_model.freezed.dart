@@ -12,7 +12,7 @@ part of 'platform_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 PlatformModel _$PlatformModelFromJson(Map<String, dynamic> json) {
   return _PlatformModel.fromJson(json);
@@ -62,22 +62,22 @@ class _$PlatformModelCopyWithImpl<$Res, $Val extends PlatformModel>
 }
 
 /// @nodoc
-abstract class _$$_PlatformModelCopyWith<$Res>
+abstract class _$$PlatformModelImplCopyWith<$Res>
     implements $PlatformModelCopyWith<$Res> {
-  factory _$$_PlatformModelCopyWith(
-          _$_PlatformModel value, $Res Function(_$_PlatformModel) then) =
-      __$$_PlatformModelCopyWithImpl<$Res>;
+  factory _$$PlatformModelImplCopyWith(
+          _$PlatformModelImpl value, $Res Function(_$PlatformModelImpl) then) =
+      __$$PlatformModelImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? number});
 }
 
 /// @nodoc
-class __$$_PlatformModelCopyWithImpl<$Res>
-    extends _$PlatformModelCopyWithImpl<$Res, _$_PlatformModel>
-    implements _$$_PlatformModelCopyWith<$Res> {
-  __$$_PlatformModelCopyWithImpl(
-      _$_PlatformModel _value, $Res Function(_$_PlatformModel) _then)
+class __$$PlatformModelImplCopyWithImpl<$Res>
+    extends _$PlatformModelCopyWithImpl<$Res, _$PlatformModelImpl>
+    implements _$$PlatformModelImplCopyWith<$Res> {
+  __$$PlatformModelImplCopyWithImpl(
+      _$PlatformModelImpl _value, $Res Function(_$PlatformModelImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +85,7 @@ class __$$_PlatformModelCopyWithImpl<$Res>
   $Res call({
     Object? number = freezed,
   }) {
-    return _then(_$_PlatformModel(
+    return _then(_$PlatformModelImpl(
       number: freezed == number
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
@@ -96,11 +96,11 @@ class __$$_PlatformModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_PlatformModel implements _PlatformModel {
-  const _$_PlatformModel({this.number});
+class _$PlatformModelImpl implements _PlatformModel {
+  const _$PlatformModelImpl({this.number});
 
-  factory _$_PlatformModel.fromJson(Map<String, dynamic> json) =>
-      _$$_PlatformModelFromJson(json);
+  factory _$PlatformModelImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PlatformModelImplFromJson(json);
 
   @override
   final String? number;
@@ -111,10 +111,10 @@ class _$_PlatformModel implements _PlatformModel {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PlatformModel &&
+            other is _$PlatformModelImpl &&
             (identical(other.number, number) || other.number == number));
   }
 
@@ -125,27 +125,27 @@ class _$_PlatformModel implements _PlatformModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PlatformModelCopyWith<_$_PlatformModel> get copyWith =>
-      __$$_PlatformModelCopyWithImpl<_$_PlatformModel>(this, _$identity);
+  _$$PlatformModelImplCopyWith<_$PlatformModelImpl> get copyWith =>
+      __$$PlatformModelImplCopyWithImpl<_$PlatformModelImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_PlatformModelToJson(
+    return _$$PlatformModelImplToJson(
       this,
     );
   }
 }
 
 abstract class _PlatformModel implements PlatformModel {
-  const factory _PlatformModel({final String? number}) = _$_PlatformModel;
+  const factory _PlatformModel({final String? number}) = _$PlatformModelImpl;
 
   factory _PlatformModel.fromJson(Map<String, dynamic> json) =
-      _$_PlatformModel.fromJson;
+      _$PlatformModelImpl.fromJson;
 
   @override
   String? get number;
   @override
   @JsonKey(ignore: true)
-  _$$_PlatformModelCopyWith<_$_PlatformModel> get copyWith =>
+  _$$PlatformModelImplCopyWith<_$PlatformModelImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
