@@ -12,7 +12,7 @@ part of 'main_tab_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$MainTabState {
@@ -93,11 +93,11 @@ class _$MainTabStateCopyWithImpl<$Res, $Val extends MainTabState>
 }
 
 /// @nodoc
-abstract class _$$_MainTabStateCopyWith<$Res>
+abstract class _$$MainTabStateImplCopyWith<$Res>
     implements $MainTabStateCopyWith<$Res> {
-  factory _$$_MainTabStateCopyWith(
-          _$_MainTabState value, $Res Function(_$_MainTabState) then) =
-      __$$_MainTabStateCopyWithImpl<$Res>;
+  factory _$$MainTabStateImplCopyWith(
+          _$MainTabStateImpl value, $Res Function(_$MainTabStateImpl) then) =
+      __$$MainTabStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -110,11 +110,11 @@ abstract class _$$_MainTabStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MainTabStateCopyWithImpl<$Res>
-    extends _$MainTabStateCopyWithImpl<$Res, _$_MainTabState>
-    implements _$$_MainTabStateCopyWith<$Res> {
-  __$$_MainTabStateCopyWithImpl(
-      _$_MainTabState _value, $Res Function(_$_MainTabState) _then)
+class __$$MainTabStateImplCopyWithImpl<$Res>
+    extends _$MainTabStateCopyWithImpl<$Res, _$MainTabStateImpl>
+    implements _$$MainTabStateImplCopyWith<$Res> {
+  __$$MainTabStateImplCopyWithImpl(
+      _$MainTabStateImpl _value, $Res Function(_$MainTabStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +127,7 @@ class __$$_MainTabStateCopyWithImpl<$Res>
     Object? dpName = null,
     Object? stateType = null,
   }) {
-    return _then(_$_MainTabState(
+    return _then(_$MainTabStateImpl(
       currentTabPosition: null == currentTabPosition
           ? _value.currentTabPosition
           : currentTabPosition // ignore: cast_nullable_to_non_nullable
@@ -158,8 +158,8 @@ class __$$_MainTabStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_MainTabState implements _MainTabState {
-  const _$_MainTabState(
+class _$MainTabStateImpl implements _MainTabState {
+  const _$MainTabStateImpl(
       {required this.currentTabPosition,
       this.isLoggedOut = false,
       this.isUpdateSide = false,
@@ -191,10 +191,10 @@ class _$_MainTabState implements _MainTabState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MainTabState &&
+            other is _$MainTabStateImpl &&
             (identical(other.currentTabPosition, currentTabPosition) ||
                 other.currentTabPosition == currentTabPosition) &&
             (identical(other.isLoggedOut, isLoggedOut) ||
@@ -214,8 +214,8 @@ class _$_MainTabState implements _MainTabState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_MainTabStateCopyWith<_$_MainTabState> get copyWith =>
-      __$$_MainTabStateCopyWithImpl<_$_MainTabState>(this, _$identity);
+  _$$MainTabStateImplCopyWith<_$MainTabStateImpl> get copyWith =>
+      __$$MainTabStateImplCopyWithImpl<_$MainTabStateImpl>(this, _$identity);
 }
 
 abstract class _MainTabState implements MainTabState {
@@ -225,7 +225,7 @@ abstract class _MainTabState implements MainTabState {
       final bool isUpdateSide,
       final String userId,
       final String dpName,
-      final StateType stateType}) = _$_MainTabState;
+      final StateType stateType}) = _$MainTabStateImpl;
 
   @override
   int get currentTabPosition;
@@ -241,6 +241,6 @@ abstract class _MainTabState implements MainTabState {
   StateType get stateType;
   @override
   @JsonKey(ignore: true)
-  _$$_MainTabStateCopyWith<_$_MainTabState> get copyWith =>
+  _$$MainTabStateImplCopyWith<_$MainTabStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

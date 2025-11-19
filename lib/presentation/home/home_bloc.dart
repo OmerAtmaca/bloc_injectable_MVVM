@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tofas_spor_okullari/state/base_cubit.dart';
 
 import '../../data/models/services/user_model_local_storage_service.dart';
 import '../../data/models/users_model.dart';
@@ -19,10 +19,11 @@ class HomeState with _$HomeState {
     @Default(null) QuerySnapshot<UsersModel?>? dataUser,
     @Default(0) int counted,
     @Default("") String userId,
+    @Default(false) bool isDragging,
   }) = _HomeState;
 }
 
-class HomeBloc extends Cubit<HomeState> {
+class HomeBloc extends BaseCubit<HomeState> {
   final FirebaseRepository _firebaseRepository;
   final UserModelLocalStorageService _localStorageService;
   HomeBloc(this._firebaseRepository, this._localStorageService)
@@ -56,6 +57,10 @@ class HomeBloc extends Cubit<HomeState> {
 
   void getCurrentUserId() {
     emit(state.copyWith(userId: _localStorageService.getId().toString()));
+  }
+
+  void isDragging(bool data) {
+    emit(state.copyWith(isDragging: data));
   }
 
   Future<void> getData() async {

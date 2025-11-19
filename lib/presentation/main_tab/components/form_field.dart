@@ -104,7 +104,12 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
   var maskFormatterTc = MaskTextInputFormatter(
       mask: '###########', filter: {"#": RegExp(r'^[0-9]')});
   var maskFormatterPhone = MaskTextInputFormatter(
-      mask: '(###) ### ## ##', filter: {"#": RegExp(r'^[0-9]')});
+      mask: '(ü*#) ### ## ##',
+      filter: {
+        "ü": RegExp(r'^5'),
+        "*": RegExp(r'^[3-5]'),
+        "#": RegExp(r'^[0-9]')
+      });
   var maskFormatterDate = MaskTextInputFormatter(
       mask: '##/##/####', filter: {"#": RegExp(r'^[0-9]')});
 
@@ -212,9 +217,7 @@ class _FormFieldWidgetState extends State<FormFieldWidget> {
                     if (value!.isEmpty || value.length < 15) {
                       return "";
                     } else {
-                      setState(() {
-                        phoneNo.text = value;
-                      });
+                      phoneNo.text = value;
                       return null;
                     }
                   },

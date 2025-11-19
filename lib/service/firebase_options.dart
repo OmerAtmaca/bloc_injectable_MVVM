@@ -59,7 +59,6 @@ class DefaultFirebaseOptions {
     messagingSenderId: '986996791056',
     projectId: 'tofasspor',
     databaseURL: 'https://tofasspor-default-rtdb.firebaseio.com',
-    storageBucket: 'tofasspor.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(

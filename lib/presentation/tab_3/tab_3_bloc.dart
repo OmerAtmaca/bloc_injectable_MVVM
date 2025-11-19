@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tofas_spor_okullari/state/base_cubit.dart';
 
 import '../../data/models/users_model.dart';
 import '../../data/repositories/firebase_repository.dart';
@@ -20,7 +20,7 @@ class TabUcState with _$TabUcState {
   }) = _TabUcState;
 }
 
-class TabUcBloc extends Cubit<TabUcState> {
+class TabUcBloc extends BaseCubit<TabUcState> {
   final FirebaseRepository _firebaseRepository;
   TabUcBloc(this._firebaseRepository) : super(const TabUcState());
 

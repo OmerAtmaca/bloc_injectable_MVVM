@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tofas_spor_okullari/state/base_cubit.dart';
 
 import '../../data/models/services/user_model_local_storage_service.dart';
 import '../../data/models/users_model.dart';
@@ -22,7 +22,7 @@ class MainTabState with _$MainTabState {
   }) = _MainTabState;
 }
 
-class MainTabBloc extends Cubit<MainTabState> {
+class MainTabBloc extends BaseCubit<MainTabState> {
   MainTabBloc(
       this._firebaseRepository, this._authRepository, this._localStorageService)
       : super(const MainTabState(currentTabPosition: 0));

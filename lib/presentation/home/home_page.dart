@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:tofas_spor_okullari/app/routing/app_router.dart';
 import 'package:tofas_spor_okullari/domain/events/update_home_event.dart';
+import 'package:tofas_spor_okullari/presentation/main_tab/main_tab_bloc.dart';
 import 'package:tofas_spor_okullari/presentation/utils/bus_helper.dart';
 
 import '../../app/routing/app_navigator.dart';
@@ -28,19 +31,60 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   final navigator = inject<AppNavigator>();
   final data = inject<HomeBloc>();
-  // late BuildContext _localContext;
-  // StreamSubscription<UpdateHomeEvent>? _updateHomeSubscription;
+  final ScrollController _scrollController = ScrollController();
+  bool _isAppBarVisible = true;
+  double _lastOffset = 0.0;
+  late AnimationController _animationController;
+  late Animation<double> _animation;
+  final double _scrollThreshold = 10.0; // Hız eşiği (pixel/saniye)
+
+  final blocMain = inject<MainTabBloc>();
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    _animation =
+        Tween<double>(begin: 1.0, end: 0.0).animate(_animationController);
+
+    _scrollController.addListener(() {
+      double currentOffset = _scrollController.offset;
+      double velocity =
+          (currentOffset - _lastOffset).abs(); // Kaydırma hızını hesapla
+
+      // Eğer hız eşikten büyükse ve AppBar görünürse, animasyonu tetikle
+      if (velocity > _scrollThreshold &&
+          _scrollController.position.userScrollDirection ==
+              ScrollDirection.reverse &&
+          _isAppBarVisible) {
+        _isAppBarVisible = false;
+        _animationController.forward();
+      }
+      // Eğer yukarı kaydırılıyorsa ve AppBar gizliyse, animasyonu geri sar
+      else if (velocity > _scrollThreshold &&
+          _scrollController.position.userScrollDirection ==
+              ScrollDirection.forward &&
+          !_isAppBarVisible) {
+        _isAppBarVisible = true;
+        _animationController.reverse();
+      }
+
+      _lastOffset = currentOffset; // Son kaydırma pozisyonunu güncelle
+      print("velocity: {$velocity}");
+      print("_lastOffset: {$_lastOffset}");
+    });
+  }
 
   @override
   void dispose() {
     data.close();
     print("home dispose");
+    _scrollController.dispose();
+    _animationController.dispose();
     super.dispose();
-  }
-
-  @override
-  void initState() {
-    super.initState();
   }
 
   // @override
@@ -109,11 +153,8 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               child: Scaffold(
                   drawerEnableOpenDragGesture: false,
                   endDrawerEnableOpenDragGesture: false,
-                  body: WillPopScope(
-                    onWillPop: () async {
-                      return false;
-                    },
-                    child: Padding(
+                  body: Stack(children: [
+                    Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: [
@@ -122,6 +163,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                   child: SizedBox(
                                       width: MediaQuery.of(context).size.width,
                                       child: ListView.builder(
+                                          controller: _scrollController,
                                           shrinkWrap: true,
                                           physics:
                                               const BouncingScrollPhysics(),
@@ -242,11 +284,43 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                             );
                                           })),
                                 )
-                              : const SizedBox()
+                              : const SizedBox(),
                         ],
                       ),
                     ),
-                  )),
+                    Positioned(
+                      left: 0.0,
+                      right: 0.0,
+                      top: 0.0,
+                      child: AnimatedBuilder(
+                        animation: _animation,
+                        builder: (context, child) {
+                          return Transform.translate(
+                            offset: Offset(0, -_animation.value * 200),
+                            child: child,
+                          );
+                        },
+                        child: PopScope(
+                          canPop: false,
+                          child: AppBar(
+                            backgroundColor: CustomColors.apple,
+                            automaticallyImplyLeading: false,
+                            title: const Text("Name",
+                                style: TextStyle(fontSize: 16)),
+                            actions: [
+                              IconButton(
+                                  onPressed: () {
+                                    BusHelper.instance?.close();
+                                    blocMain.logout();
+                                    navigator.pushRouteReplace(LoginPath());
+                                  },
+                                  icon: const Icon(Icons.logout))
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+                  ])),
             );
           } else if (state.stateType == StateType.error) {
             return CustomErrorWidget(errorText: state.pageError);

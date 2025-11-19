@@ -12,7 +12,7 @@ part of 'login_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LoginState {
@@ -107,11 +107,11 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
 }
 
 /// @nodoc
-abstract class _$$_LoginStateCopyWith<$Res>
+abstract class _$$LoginStateImplCopyWith<$Res>
     implements $LoginStateCopyWith<$Res> {
-  factory _$$_LoginStateCopyWith(
-          _$_LoginState value, $Res Function(_$_LoginState) then) =
-      __$$_LoginStateCopyWithImpl<$Res>;
+  factory _$$LoginStateImplCopyWith(
+          _$LoginStateImpl value, $Res Function(_$LoginStateImpl) then) =
+      __$$LoginStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -126,11 +126,11 @@ abstract class _$$_LoginStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LoginStateCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$_LoginState>
-    implements _$$_LoginStateCopyWith<$Res> {
-  __$$_LoginStateCopyWithImpl(
-      _$_LoginState _value, $Res Function(_$_LoginState) _then)
+class __$$LoginStateImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoginStateImpl>
+    implements _$$LoginStateImplCopyWith<$Res> {
+  __$$LoginStateImplCopyWithImpl(
+      _$LoginStateImpl _value, $Res Function(_$LoginStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -145,7 +145,7 @@ class __$$_LoginStateCopyWithImpl<$Res>
     Object? isSign = null,
     Object? stateType = null,
   }) {
-    return _then(_$_LoginState(
+    return _then(_$LoginStateImpl(
       userModel: freezed == userModel
           ? _value.userModel
           : userModel // ignore: cast_nullable_to_non_nullable
@@ -184,8 +184,8 @@ class __$$_LoginStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoginState implements _LoginState {
-  const _$_LoginState(
+class _$LoginStateImpl implements _LoginState {
+  const _$LoginStateImpl(
       {this.userModel,
       this.email = "",
       this.password = "",
@@ -225,10 +225,10 @@ class _$_LoginState implements _LoginState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LoginState &&
+            other is _$LoginStateImpl &&
             (identical(other.userModel, userModel) ||
                 other.userModel == userModel) &&
             (identical(other.email, email) || other.email == email) &&
@@ -251,8 +251,8 @@ class _$_LoginState implements _LoginState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
-      __$$_LoginStateCopyWithImpl<_$_LoginState>(this, _$identity);
+  _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
+      __$$LoginStateImplCopyWithImpl<_$LoginStateImpl>(this, _$identity);
 }
 
 abstract class _LoginState implements LoginState {
@@ -264,7 +264,7 @@ abstract class _LoginState implements LoginState {
       final String phoneNumber,
       final bool isPhoneValid,
       final bool isSign,
-      final StateType stateType}) = _$_LoginState;
+      final StateType stateType}) = _$LoginStateImpl;
 
   @override
   UsersModel? get userModel;
@@ -284,6 +284,6 @@ abstract class _LoginState implements LoginState {
   StateType get stateType;
   @override
   @JsonKey(ignore: true)
-  _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>
+  _$$LoginStateImplCopyWith<_$LoginStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

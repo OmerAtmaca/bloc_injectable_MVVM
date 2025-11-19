@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tofas_spor_okullari/state/base_cubit.dart';
 import 'package:version/version.dart';
 
 import '../../config/di/di.dart';
@@ -29,7 +29,7 @@ class SplashState with _$SplashState {
   }) = _SplashState;
 }
 
-class SplashBloc extends Cubit<SplashState> {
+class SplashBloc extends BaseCubit<SplashState> {
   final AuthRepository _authRepository;
   final FirebaseRepository _firebaseRepository;
 

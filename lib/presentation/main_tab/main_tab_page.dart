@@ -49,7 +49,7 @@ class MainTabPage extends StatelessWidget {
               BusHelper.instance?.eventBus
                   .on<UpdateSideEvent>()
                   .listen((event) {
-                context.read<MainTabBloc>().updateSide(event.side);
+                blocMain.updateSide(event.side);
               });
               return Scaffold(
                 backgroundColor: state.isUpdateSide
@@ -66,19 +66,21 @@ class MainTabPage extends StatelessWidget {
                         context.tabsRouter.setActiveIndex(position);
                       },
                     )),
-                appBar: AppBar(
-                  automaticallyImplyLeading: false,
-                  title: Text(state.dpName),
-                  actions: [
-                    IconButton(
-                        onPressed: () {
-                          BusHelper.instance?.close();
-                          blocMain.logout();
-                          navigator.pushRouteReplace(LoginPath());
-                        },
-                        icon: const Icon(Icons.logout))
-                  ],
-                ),
+                // appBar: AppBar(
+                //   backgroundColor: CustomColors.apple,
+                //   automaticallyImplyLeading: false,
+                //   title:
+                //       Text(state.dpName, style: const TextStyle(fontSize: 16)),
+                //   actions: [
+                //     IconButton(
+                //         onPressed: () {
+                //           BusHelper.instance?.close();
+                //           blocMain.logout();
+                //           navigator.pushRouteReplace(LoginPath());
+                //         },
+                //         icon: const Icon(Icons.logout))
+                //   ],
+                // ),
                 floatingActionButtonLocation:
                     FloatingActionButtonLocation.centerDocked,
                 floatingActionButton: SizedBox(

@@ -12,7 +12,7 @@ part of 'onboarding_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$OnBoardingState {
@@ -63,22 +63,22 @@ class _$OnBoardingStateCopyWithImpl<$Res, $Val extends OnBoardingState>
 }
 
 /// @nodoc
-abstract class _$$_OnBoardingStateCopyWith<$Res>
+abstract class _$$OnBoardingStateImplCopyWith<$Res>
     implements $OnBoardingStateCopyWith<$Res> {
-  factory _$$_OnBoardingStateCopyWith(
-          _$_OnBoardingState value, $Res Function(_$_OnBoardingState) then) =
-      __$$_OnBoardingStateCopyWithImpl<$Res>;
+  factory _$$OnBoardingStateImplCopyWith(_$OnBoardingStateImpl value,
+          $Res Function(_$OnBoardingStateImpl) then) =
+      __$$OnBoardingStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int currentPage, bool isLoading});
 }
 
 /// @nodoc
-class __$$_OnBoardingStateCopyWithImpl<$Res>
-    extends _$OnBoardingStateCopyWithImpl<$Res, _$_OnBoardingState>
-    implements _$$_OnBoardingStateCopyWith<$Res> {
-  __$$_OnBoardingStateCopyWithImpl(
-      _$_OnBoardingState _value, $Res Function(_$_OnBoardingState) _then)
+class __$$OnBoardingStateImplCopyWithImpl<$Res>
+    extends _$OnBoardingStateCopyWithImpl<$Res, _$OnBoardingStateImpl>
+    implements _$$OnBoardingStateImplCopyWith<$Res> {
+  __$$OnBoardingStateImplCopyWithImpl(
+      _$OnBoardingStateImpl _value, $Res Function(_$OnBoardingStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -87,7 +87,7 @@ class __$$_OnBoardingStateCopyWithImpl<$Res>
     Object? currentPage = null,
     Object? isLoading = null,
   }) {
-    return _then(_$_OnBoardingState(
+    return _then(_$OnBoardingStateImpl(
       currentPage: null == currentPage
           ? _value.currentPage
           : currentPage // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,9 @@ class __$$_OnBoardingStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_OnBoardingState implements _OnBoardingState {
-  const _$_OnBoardingState({required this.currentPage, this.isLoading = false});
+class _$OnBoardingStateImpl implements _OnBoardingState {
+  const _$OnBoardingStateImpl(
+      {required this.currentPage, this.isLoading = false});
 
   @override
   final int currentPage;
@@ -117,10 +118,10 @@ class _$_OnBoardingState implements _OnBoardingState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_OnBoardingState &&
+            other is _$OnBoardingStateImpl &&
             (identical(other.currentPage, currentPage) ||
                 other.currentPage == currentPage) &&
             (identical(other.isLoading, isLoading) ||
@@ -133,14 +134,15 @@ class _$_OnBoardingState implements _OnBoardingState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_OnBoardingStateCopyWith<_$_OnBoardingState> get copyWith =>
-      __$$_OnBoardingStateCopyWithImpl<_$_OnBoardingState>(this, _$identity);
+  _$$OnBoardingStateImplCopyWith<_$OnBoardingStateImpl> get copyWith =>
+      __$$OnBoardingStateImplCopyWithImpl<_$OnBoardingStateImpl>(
+          this, _$identity);
 }
 
 abstract class _OnBoardingState implements OnBoardingState {
   const factory _OnBoardingState(
       {required final int currentPage,
-      final bool isLoading}) = _$_OnBoardingState;
+      final bool isLoading}) = _$OnBoardingStateImpl;
 
   @override
   int get currentPage;
@@ -148,6 +150,6 @@ abstract class _OnBoardingState implements OnBoardingState {
   bool get isLoading;
   @override
   @JsonKey(ignore: true)
-  _$$_OnBoardingStateCopyWith<_$_OnBoardingState> get copyWith =>
+  _$$OnBoardingStateImplCopyWith<_$OnBoardingStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

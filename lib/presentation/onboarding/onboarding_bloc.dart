@@ -1,5 +1,5 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:tofas_spor_okullari/state/base_cubit.dart';
 
 import '../../data/models/services/user_model_local_storage_service.dart';
 
@@ -13,7 +13,7 @@ class OnBoardingState with _$OnBoardingState {
   }) = _OnBoardingState;
 }
 
-class OnBoardingBloc extends Cubit<OnBoardingState> {
+class OnBoardingBloc extends BaseCubit<OnBoardingState> {
   final UserModelLocalStorageService localStorageService;
   OnBoardingBloc(this.localStorageService)
       : super(const OnBoardingState(currentPage: 0));
